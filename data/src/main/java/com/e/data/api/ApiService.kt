@@ -10,7 +10,7 @@ import retrofit2.http.GET
 interface ApiService {
 
 
-    @GET
+    @GET("https://api.openweathermap.org/data/2.5/onecall")
     @FormUrlEncoded
     suspend fun getUserCityWeather(
         @Field("lat") latitude: Float,
@@ -19,7 +19,7 @@ interface ApiService {
         @Field("appid") apiKey: String,
     ): Response<UserCityResponse>
 
-    @GET
+    @GET("api.openweathermap.org/data/2.5/weather")
     @FormUrlEncoded
     suspend fun getChosenCityWeather(
         @Field("q") q: String,
