@@ -1,13 +1,10 @@
-package com.e.data.entity
+package com.e.data.entity.user
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 
 @JsonClass(generateAdapter = true)
-data class CityResponse(
-
-    @Json(name = "lat")
-    val time: Int,
+data class UserCityResponse(
 
     @Json(name = "lat")
     val lat: Float,

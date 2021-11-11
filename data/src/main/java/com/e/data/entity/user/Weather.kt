@@ -1,4 +1,4 @@
-package com.e.data.entity
+package com.e.data.entity.user
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass

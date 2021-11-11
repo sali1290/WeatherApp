@@ -1,12 +1,15 @@
-package com.e.data.entity
+package com.e.data.entity.user
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 
 @JsonClass(generateAdapter = true)
-data class Forecast(
+data class Current(
     @Json(name = "temp")
-    val temp: ForecastTemp,
+    val temp: Float,
+
+    @Json(name = "feels_like")
+    val feelsLike: Float,
 
     @Json(name = "pressure")
     val pressure: Float,
@@ -19,4 +22,6 @@ data class Forecast(
 
     @Json(name = "weather")
     val weather: Weather,
-)
+
+
+    )

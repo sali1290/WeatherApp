@@ -1,6 +1,6 @@
 package com.e.data.api
 
-import com.e.data.entity.CityResponse
+import com.e.data.entity.user.UserCityResponse
 import retrofit2.Response
 import retrofit2.http.Field
 import retrofit2.http.FormUrlEncoded
@@ -16,7 +16,7 @@ interface ApiService {
         @Field ("lat") longitude: Float,
         @Field ("lat") exclude: String,
         @Field ("lat") apiKey: String,
-    ):Response<CityResponse>
+    ):Response<UserCityResponse>
 
     @GET
     @FormUrlEncoded
@@ -25,7 +25,7 @@ interface ApiService {
         @Field ("lat") longitude: Float,
         @Field ("lat") exclude: String,
         @Field ("lat") apiKey: String,
-    ):Response<CityResponse>
+    ):Response<UserCityResponse>
 
 
 
