@@ -21,5 +21,5 @@ data class ForecastTemp(
     val eve: Float,
 
     @Json(name = "morn")
-    val morn: Weather,
+    val morn: Float,
 )

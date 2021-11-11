@@ -14,6 +14,6 @@ data class ChosenCityTempModel(
 
     val pressure: Float,
 
-    val humidity: WeatherModel,
+    val humidity: Float,
 
     )

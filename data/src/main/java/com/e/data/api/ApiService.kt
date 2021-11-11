@@ -1,5 +1,6 @@
 package com.e.data.api
 
+import com.e.data.entity.chosen.ChosenCityResponse
 import com.e.data.entity.user.UserCityResponse
 import retrofit2.Response
 import retrofit2.http.Field
@@ -12,21 +13,18 @@ interface ApiService {
     @GET
     @FormUrlEncoded
     suspend fun getUserCityWeather(
-        @Field ("lat") latitude: Float,
-        @Field ("lat") longitude: Float,
-        @Field ("lat") exclude: String,
-        @Field ("lat") apiKey: String,
-    ):Response<UserCityResponse>
+        @Field("lat") latitude: Float,
+        @Field("lon") longitude: Float,
+        @Field("exclude") exclude: String,
+        @Field("appid") apiKey: String,
+    ): Response<UserCityResponse>
 
     @GET
     @FormUrlEncoded
     suspend fun getChosenCityWeather(
-        @Field ("lat") latitude: Float,
-        @Field ("lat") longitude: Float,
-        @Field ("lat") exclude: String,
-        @Field ("lat") apiKey: String,
-    ):Response<UserCityResponse>
-
+        @Field("q") q: String,
+        @Field("appid") appId: String,
+    ): Response<ChosenCityResponse>
 
 
 }

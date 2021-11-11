@@ -11,5 +11,5 @@ data class ForeCastTempModel(
 
     val eve: Float,
 
-    val morn: WeatherModel,
+    val morn: Float,
 )
