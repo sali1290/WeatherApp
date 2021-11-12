@@ -1,7 +1,5 @@
 package com.e.domain.models.chosenmodel
 
-import com.e.domain.models.usermodel.WeatherModel
-
 data class ChosenCityTempModel(
 
     val temp: Float,
@@ -12,8 +10,8 @@ data class ChosenCityTempModel(
 
     val tempMax: Float,
 
-    val pressure: Float,
+    val pressure: Int,
 
-    val humidity: Float,
+    val humidity: Int,
 
     )

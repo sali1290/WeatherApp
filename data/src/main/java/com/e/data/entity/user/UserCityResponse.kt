@@ -12,14 +12,17 @@ data class UserCityResponse(
     @Json(name = "lon")
     val lon: Float,
 
-    @Json(name = "lat")
+    @Json(name = "timezone")
+    val timezone: String,
+
+    @Json(name = "current")
     val current: Current,
 
-    @Json(name = "lat")
-    val hourly: Hourly,
+    @Json(name = "hourly")
+    val hourly: MutableList<Current>,
 
-    @Json(name = "lat")
-    val daily: Daily,
+    @Json(name = "daily")
+    val daily: MutableList<Forecast>,
 
 
     )

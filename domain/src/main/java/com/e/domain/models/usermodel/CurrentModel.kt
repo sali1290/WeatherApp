@@ -5,11 +5,11 @@ data class CurrentModel(
 
     val feelsLike: Float,
 
-    val pressure: Float,
+    val pressure: Int,
 
-    val humidity: Float,
+    val humidity: Int,
 
     val uvi: Float,
 
-    val weatherModel: WeatherModel,
+    val weatherListModel: MutableList<WeatherModel>,
 )

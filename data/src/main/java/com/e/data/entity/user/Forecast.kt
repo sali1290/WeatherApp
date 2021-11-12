@@ -9,14 +9,14 @@ data class Forecast(
     val temp: ForecastTemp,
 
     @Json(name = "pressure")
-    val pressure: Float,
+    val pressure: Int,
 
     @Json(name = "humidity")
-    val humidity: Float,
+    val humidity: Int,
 
     @Json(name = "uvi")
     val uvi: Float,
 
     @Json(name = "weather")
-    val weather: Weather,
+    val weatherList: MutableList<Weather>,
 )

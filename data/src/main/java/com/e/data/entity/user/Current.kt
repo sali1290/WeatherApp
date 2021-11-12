@@ -12,16 +12,16 @@ data class Current(
     val feelsLike: Float,
 
     @Json(name = "pressure")
-    val pressure: Float,
+    val pressure: Int,
 
     @Json(name = "humidity")
-    val humidity: Float,
+    val humidity: Int,
 
     @Json(name = "uvi")
     val uvi: Float,
 
     @Json(name = "weather")
-    val weather: Weather,
+    val weatherList: List<Weather>,
 
 
     )

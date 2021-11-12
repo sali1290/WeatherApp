@@ -6,24 +6,23 @@ import retrofit2.Response
 import retrofit2.http.Field
 import retrofit2.http.FormUrlEncoded
 import retrofit2.http.GET
+import retrofit2.http.Query
 
 interface ApiService {
 
 
-    @GET("https://api.openweathermap.org/data/2.5/onecall")
-    @FormUrlEncoded
+    @GET("onecall")
     suspend fun getUserCityWeather(
-        @Field("lat") latitude: Float,
-        @Field("lon") longitude: Float,
-        @Field("exclude") exclude: String,
-        @Field("appid") apiKey: String,
+        @Query("lat") latitude: Float,
+        @Query("lon") longitude: Float,
+        @Query("exclude") exclude: String,
+        @Query("appid") apiKey: String,
     ): Response<UserCityResponse>
 
-    @GET("api.openweathermap.org/data/2.5/weather")
-    @FormUrlEncoded
+    @GET("weather")
     suspend fun getChosenCityWeather(
-        @Field("q") q: String,
-        @Field("appid") appId: String,
+        @Query("q") q: String,
+        @Query("appid") appId: String,
     ): Response<ChosenCityResponse>
 
 

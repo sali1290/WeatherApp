@@ -3,6 +3,7 @@ package com.e.data.di
 import com.e.data.repository.GetChosenCityWeatherImpl
 import com.e.data.repository.GetUserCityWeatherImpl
 import com.e.domain.repository.GetChosenCityWeatherRepo
+import com.e.domain.repository.GetUserCityWeatherRepo
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
@@ -20,6 +21,6 @@ abstract class RepositoryModule {
     @Binds
     abstract fun bindUserCityWeather(
         getUserCityWeatherImpl: GetUserCityWeatherImpl
-    ): GetChosenCityWeatherRepo
+    ): GetUserCityWeatherRepo
 
 }

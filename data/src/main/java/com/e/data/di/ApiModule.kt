@@ -40,6 +40,7 @@ class ApiModule {
     @Singleton
     fun provideRetrofit(okHttpClient: OkHttpClient): Retrofit {
         return Retrofit.Builder()
+            .baseUrl("https://api.openweathermap.org/data/2.5/")
             .addConverterFactory(MoshiConverterFactory.create(provideMoshi()))
             .client(okHttpClient)
             .build()

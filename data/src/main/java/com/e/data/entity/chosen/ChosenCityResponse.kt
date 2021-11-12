@@ -11,7 +11,7 @@ data class ChosenCityResponse(
     val cord: ChosenCord,
 
     @Json(name = "weather")
-    val weather: Weather,
+    val weatherList: MutableList<Weather>,
 
     @Json(name = "main")
     val chosenCityTemp: ChosenCityTemp,

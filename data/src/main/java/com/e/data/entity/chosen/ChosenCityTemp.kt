@@ -18,9 +18,9 @@ data class ChosenCityTemp(
     val tempMax: Float,
 
     @Json(name = "pressure")
-    val pressure: Float,
+    val pressure: Int,
 
     @Json(name = "humidity")
-    val humidity: Float,
+    val humidity: Int,
 )
 

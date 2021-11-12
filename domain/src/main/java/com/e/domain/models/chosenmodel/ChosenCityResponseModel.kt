@@ -6,7 +6,7 @@ data class ChosenCityResponseModel(
 
     val cord: ChosenCordModel,
 
-    val weather: WeatherModel,
+    val weather: MutableList<WeatherModel>,
 
     val chosenCityTemp: ChosenCityTempModel,
 

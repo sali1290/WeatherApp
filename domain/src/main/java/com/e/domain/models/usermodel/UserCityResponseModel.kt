@@ -6,10 +6,12 @@ data class UserCityResponseModel(
 
     val lon: Float,
 
+    val timezone: String,
+
     val currentModel: CurrentModel,
 
-    val hourlyModel: HourlyModel,
+    val hourlyModel: MutableList<CurrentModel>,
 
-    val dailyModel: DailyModel
+    val dailyModel: MutableList<ForeCastModel>
 
 )

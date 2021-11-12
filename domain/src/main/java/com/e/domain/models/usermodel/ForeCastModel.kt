@@ -4,11 +4,11 @@ data class ForeCastModel(
 
     val temp: ForeCastTempModel,
 
-    val pressure: Float,
+    val pressure: Int,
 
-    val humidity: Float,
+    val humidity: Int,
 
     val uvi: Float,
 
-    val weather: WeatherModel,
+    val weather: MutableList<WeatherModel>,
 )
