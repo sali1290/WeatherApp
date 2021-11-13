@@ -17,6 +17,7 @@ import com.e.weatherapp.viewmodel.GetUserCityWeatherViewModel
 import com.google.android.gms.location.*
 import dagger.hilt.android.AndroidEntryPoint
 import com.e.weatherapp.R
+import com.e.weatherapp.adapter.ForeCastAdapter
 import com.e.weatherapp.adapter.HourlyAdapter
 
 
@@ -191,6 +192,8 @@ class ShowUserCityFragment : Fragment() {
                     binding.tvHumidity.text = it.data.currentModel.humidity.toString() + "%"
 
                     binding.hourlyRecycler.adapter = HourlyAdapter(it.data, requireContext())
+                    binding.forecastRecycler.adapter =
+                        ForeCastAdapter(it.data.dailyModel, requireContext())
                 }
 
                 is Result.Loading -> {
