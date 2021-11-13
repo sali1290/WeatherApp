@@ -20,6 +20,9 @@ data class Current(
     @Json(name = "uvi")
     val uvi: Float,
 
+    @Json(name = "wind_speed")
+    val windSpeed: Float,
+
     @Json(name = "weather")
     val weatherList: List<Weather>,
 

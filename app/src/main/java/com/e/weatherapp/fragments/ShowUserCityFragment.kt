@@ -186,9 +186,11 @@ class ShowUserCityFragment : Fragment() {
                     }
                     binding.tvWeatherCo.text = it.data.currentModel.weatherListModel[0].main
                     binding.tvCity.text = it.data.timezone
+                    binding.tvUvIndex.text = it.data.currentModel.uvi.toString()
+                    binding.tvWindSpeed.text = it.data.currentModel.windSpeed.toString() + "Km/h"
+                    binding.tvHumidity.text = it.data.currentModel.humidity.toString() + "%"
 
                     binding.hourlyRecycler.adapter = HourlyAdapter(it.data, requireContext())
-
                 }
 
                 is Result.Loading -> {

@@ -12,6 +12,7 @@ class CurrentMapper @Inject constructor() {
             current.pressure,
             current.humidity,
             current.uvi,
+            current.windSpeed,
             current.weatherList.map {
                 WeatherMapper().toMapper(it)
             }.toMutableList()

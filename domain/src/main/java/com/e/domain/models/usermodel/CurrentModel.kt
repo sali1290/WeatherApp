@@ -11,5 +11,7 @@ data class CurrentModel(
 
     val uvi: Float,
 
+    val windSpeed: Float,
+
     val weatherListModel: MutableList<WeatherModel>,
 )
