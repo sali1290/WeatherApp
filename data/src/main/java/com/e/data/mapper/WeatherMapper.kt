@@ -9,7 +9,8 @@ class WeatherMapper @Inject constructor() {
         return WeatherModel(
             weather.id,
             weather.main,
-            weather.desc
+            weather.desc,
+            weather.icon
         )
     }
 }

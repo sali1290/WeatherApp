@@ -5,5 +5,7 @@ data class WeatherModel(
 
     val main: String,
 
-    val desc: String
+    val desc: String,
+
+    val icon: String
 )

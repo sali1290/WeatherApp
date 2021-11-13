@@ -12,5 +12,8 @@ data class Weather(
     val main: String,
 
     @Json(name = "description")
-    val desc: String
+    val desc: String,
+
+    @Json(name = "icon")
+    val icon: String
 )

@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.app.ActivityCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
@@ -15,6 +16,8 @@ import com.e.weatherapp.databinding.FragmentShowUserCityBinding
 import com.e.weatherapp.viewmodel.GetUserCityWeatherViewModel
 import com.google.android.gms.location.*
 import dagger.hilt.android.AndroidEntryPoint
+import com.e.weatherapp.R
+import com.e.weatherapp.adapter.HourlyAdapter
 
 
 @AndroidEntryPoint
@@ -42,6 +45,8 @@ class ShowUserCityFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         startTracking()
+
+
     }
 
     private fun startTracking() {
@@ -110,15 +115,88 @@ class ShowUserCityFragment : Fragment() {
         viewModel.userCityResponse.observe(viewLifecycleOwner, {
             when (it) {
                 is Result.Success -> {
-                    binding.test.text = it.data.lat.toString() + "     " + it.data.lon.toString()
+                    val temp = (it.data.currentModel.temp - 273).toInt()
+                    binding.tvTemp.text = temp.toString() + "C"
+                    when (it.data.currentModel.weatherListModel[0].desc) {
+
+                        "clear sky" -> {
+                            binding.imgIcon.setImageDrawable(
+                                AppCompatResources.getDrawable(
+                                    requireContext(),
+                                    R.drawable.ic_sun
+                                )
+                            )
+                        }
+
+                        "mist" -> {
+                            binding.imgIcon.setImageDrawable(
+                                AppCompatResources.getDrawable(
+                                    requireContext(),
+                                    R.drawable.ic_mist
+                                )
+                            )
+                        }
+
+                        "snow" -> {
+                            binding.imgIcon.setImageDrawable(
+                                AppCompatResources.getDrawable(
+                                    requireContext(),
+                                    R.drawable.ic_snow
+                                )
+                            )
+                        }
+
+                        "few clouds" -> {
+                            binding.imgIcon.setImageDrawable(
+                                AppCompatResources.getDrawable(
+                                    requireContext(),
+                                    R.drawable.ic_few_clouds
+                                )
+                            )
+                        }
+
+                        "rain" -> {
+                            binding.imgIcon.setImageDrawable(
+                                AppCompatResources.getDrawable(
+                                    requireContext(),
+                                    R.drawable.ic_rain
+                                )
+                            )
+                        }
+
+                        "shower rain" -> {
+                            binding.imgIcon.setImageDrawable(
+                                AppCompatResources.getDrawable(
+                                    requireContext(),
+                                    R.drawable.ic_rain
+                                )
+                            )
+                        }
+
+                        else -> {
+                            binding.imgIcon.setImageDrawable(
+                                AppCompatResources.getDrawable(
+                                    requireContext(),
+                                    R.drawable.ic_clouds
+                                )
+                            )
+                        }
+
+
+                    }
+                    binding.tvWeatherCo.text = it.data.currentModel.weatherListModel[0].main
+                    binding.tvCity.text = it.data.timezone
+
+                    binding.hourlyRecycler.adapter = HourlyAdapter(it.data, requireContext())
+
                 }
 
                 is Result.Loading -> {
-                    Toast.makeText(requireContext(), "Loading", Toast.LENGTH_LONG).show()
+
                 }
 
                 is Result.Error -> {
-                    binding.test.text = it.message
+                    Toast.makeText(requireContext(), it.message, Toast.LENGTH_LONG).show()
                 }
             }
         })
