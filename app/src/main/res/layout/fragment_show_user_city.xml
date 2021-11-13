@@ -102,7 +102,7 @@
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/hourly_recycler"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/_80sdp"
+                android:layout_height="@dimen/_95sdp"
                 android:layout_margin="@dimen/_3sdp"
                 android:orientation="horizontal"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />

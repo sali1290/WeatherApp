@@ -20,6 +20,7 @@ class HourlyAdapter(
     inner class HourlyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val textViewTemp: TextView = itemView.findViewById(R.id.tv_hourly_temp)
         val textViewTime: TextView = itemView.findViewById(R.id.tv_hourly_time)
+        val textViewType: TextView = itemView.findViewById(R.id.tv_weather_type)
         val imageWeather: ImageView = itemView.findViewById(R.id.imageView)
 
     }
@@ -31,9 +32,12 @@ class HourlyAdapter(
     }
 
     override fun onBindViewHolder(holder: HourlyViewHolder, position: Int) {
-        holder.textViewTemp.text = (hourlyList.hourlyModel[position].temp - 273).toInt().toString() + "C"
-        holder.textViewTime.text = hourlyList.hourlyModel[position].weatherListModel[0].main
+        holder.textViewTemp.text =
+            (hourlyList.hourlyModel[position].temp - 273).toInt().toString() + "C"
 
+        holder.textViewTime.text = "$position.00"
+
+        holder.textViewType.text = hourlyList.hourlyModel[position].weatherListModel[0].main
         when (hourlyList.hourlyModel[0].weatherListModel[0].desc) {
 
             "clear sky" -> {
@@ -104,5 +108,5 @@ class HourlyAdapter(
 
     }
 
-    override fun getItemCount() = hourlyList.hourlyModel.size
+    override fun getItemCount() = hourlyList.hourlyModel.size /2 + 1
 }
