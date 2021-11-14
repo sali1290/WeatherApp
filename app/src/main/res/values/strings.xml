@@ -7,4 +7,5 @@
     <string name="temp">Temperature</string>
     <string name="feels_like">Feels like</string>
     <string name="max_min">max/min</string>
+    <string name="pressure">Pressure</string>
 </resources>

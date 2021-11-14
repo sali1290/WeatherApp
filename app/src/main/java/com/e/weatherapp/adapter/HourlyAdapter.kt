@@ -38,7 +38,7 @@ class HourlyAdapter(
         holder.textViewTime.text = "$position.00"
 
         holder.textViewType.text = hourlyList.hourlyModel[position].weatherListModel[0].main
-        when (hourlyList.hourlyModel[0].weatherListModel[0].desc) {
+        when (hourlyList.hourlyModel[position].weatherListModel[0].desc) {
 
             "clear sky" -> {
                 holder.imageWeather.setImageDrawable(

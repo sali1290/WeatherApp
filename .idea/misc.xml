@@ -6,7 +6,9 @@
         <entry key="..\:/Android Projects/WeatherApp/app/src/main/res/drawable/background_pic.xml" value="0.262037037037037" />
         <entry key="..\:/Android Projects/WeatherApp/app/src/main/res/layout/activity_main.xml" value="0.25416666666666665" />
         <entry key="..\:/Android Projects/WeatherApp/app/src/main/res/layout/activity_search_result.xml" value="0.25416666666666665" />
+        <entry key="..\:/Android Projects/WeatherApp/app/src/main/res/layout/activity_show_chosen_day_info.xml" value="0.25416666666666665" />
         <entry key="..\:/Android Projects/WeatherApp/app/src/main/res/layout/fragment_search_result.xml" value="0.25416666666666665" />
+        <entry key="..\:/Android Projects/WeatherApp/app/src/main/res/layout/fragment_show_chosen_day_info.xml" value="0.25416666666666665" />
         <entry key="..\:/Android Projects/WeatherApp/app/src/main/res/layout/fragment_show_user_city.xml" value="0.264" />
         <entry key="..\:/Android Projects/WeatherApp/app/src/main/res/layout/item_weather_forecast.xml" value="0.25416666666666665" />
         <entry key="..\:/Android Projects/WeatherApp/app/src/main/res/layout/item_weather_hourly.xml" value="0.25416666666666665" />

@@ -223,7 +223,7 @@ class ShowUserCityFragment : Fragment() {
 
                     binding.hourlyRecycler.adapter = HourlyAdapter(it.data, requireContext())
                     binding.forecastRecycler.adapter =
-                        ForeCastAdapter(it.data.dailyModel, requireContext())
+                        ForeCastAdapter(it.data.dailyModel, requireContext(), requireActivity())
                 }
 
                 is Result.Loading -> {
