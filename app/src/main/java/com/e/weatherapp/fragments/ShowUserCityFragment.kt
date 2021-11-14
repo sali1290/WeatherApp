@@ -67,8 +67,6 @@ class ShowUserCityFragment : Fragment() {
                     requireActivity().getSharedPreferences("searchResult", Context.MODE_PRIVATE)
                         .edit().putString("Key", query).apply()
                     startActivity(Intent(requireContext(), SearchResultActivity::class.java))
-                    Toast.makeText(requireContext(), query, Toast.LENGTH_LONG).show()
-                    onDestroy()
                 } else {
                     Toast.makeText(requireContext(), "wrong input", Toast.LENGTH_LONG).show()
                 }

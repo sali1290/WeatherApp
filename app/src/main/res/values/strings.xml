@@ -4,4 +4,7 @@
     <string name="uv_index">UV index</string>
     <string name="wind">Wind</string>
     <string name="humidity">Humidity</string>
+    <string name="temp">Temperature</string>
+    <string name="feels_like">Feels like</string>
+    <string name="max_min">max/min</string>
 </resources>
