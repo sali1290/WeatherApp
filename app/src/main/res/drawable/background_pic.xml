@@ -2,7 +2,7 @@
 <shape xmlns:android="http://schemas.android.com/apk/res/android">
 
     <gradient
-        android:angle="@integer/config_navAnimTime"
+        android:angle="270"
         android:centerColor="@color/white"
         android:endColor="@color/white"
         android:startColor="#00BCD4" />

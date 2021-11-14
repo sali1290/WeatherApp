@@ -72,7 +72,7 @@ class ForeCastAdapter(
             }
         }
 
-        when (dailyList[position].weather[0].desc) {
+        when (dailyList[0].weather[0].desc) {
 
             "clear sky" -> {
                 holder.image.setImageDrawable(
