@@ -1,22 +1,28 @@
 package com.e.weatherapp.fragments
 
 import android.Manifest
+import android.content.Context
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ProgressBar
+import android.widget.SearchView
 import android.widget.Toast
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.app.ActivityCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import com.e.domain.Result
 import com.e.weatherapp.databinding.FragmentShowUserCityBinding
 import com.e.weatherapp.viewmodel.GetUserCityWeatherViewModel
 import com.google.android.gms.location.*
 import dagger.hilt.android.AndroidEntryPoint
 import com.e.weatherapp.R
+import com.e.weatherapp.activity.SearchResultActivity
 import com.e.weatherapp.adapter.ForeCastAdapter
 import com.e.weatherapp.adapter.HourlyAdapter
 
@@ -45,9 +51,34 @@ class ShowUserCityFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        searchViewImplement()
         startTracking()
 
+    }
 
+    private fun searchViewImplement() {
+        //query hints for searchView
+        binding.searchView.queryHint = "London"
+
+        //show search result
+        binding.searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                if (query!!.isNotEmpty()) {
+                    requireActivity().getSharedPreferences("searchResult", Context.MODE_PRIVATE)
+                        .edit().putString("Key", query).apply()
+                    startActivity(Intent(requireContext(), SearchResultActivity::class.java))
+                    Toast.makeText(requireContext(), query, Toast.LENGTH_LONG).show()
+                    onDestroy()
+                } else {
+                    Toast.makeText(requireContext(), "wrong input", Toast.LENGTH_LONG).show()
+                }
+                return false
+            }
+
+            override fun onQueryTextChange(p0: String?): Boolean {
+                return false
+            }
+        })
     }
 
     private fun startTracking() {
@@ -109,13 +140,14 @@ class ShowUserCityFragment : Fragment() {
                 requireActivity().finish()
             }
         }
-
     }
 
     private fun observe() {
+        val progressBar: ProgressBar = requireActivity().findViewById(R.id.progressBar)
         viewModel.userCityResponse.observe(viewLifecycleOwner, {
             when (it) {
                 is Result.Success -> {
+                    progressBar.visibility = View.GONE
                     val temp = (it.data.currentModel.temp - 273).toInt()
                     binding.tvTemp.text = temp.toString() + "C"
                     when (it.data.currentModel.weatherListModel[0].desc) {
@@ -197,17 +229,18 @@ class ShowUserCityFragment : Fragment() {
                 }
 
                 is Result.Loading -> {
-
+                    progressBar.visibility = View.VISIBLE
                 }
 
                 is Result.Error -> {
+                    progressBar.visibility = View.GONE
                     Toast.makeText(requireContext(), it.message, Toast.LENGTH_LONG).show()
                 }
             }
         })
     }
 
-    // use this for times that other app using GPS before
+    // we can use this method for times that other app used GPS before
 //    private fun updateGPS() {
 //        locationRequest = LocationRequest.create()
 //        locationRequest.apply {

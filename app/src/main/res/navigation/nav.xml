@@ -9,5 +9,14 @@
         android:id="@+id/showUserCityFragment"
         android:name="com.e.weatherapp.fragments.ShowUserCityFragment"
         android:label="fragment_show_user_city"
-        tools:layout="@layout/fragment_show_user_city" />
+        tools:layout="@layout/fragment_show_user_city" >
+        <action
+            android:id="@+id/action_showUserCityFragment_to_searchResultFragment"
+            app:destination="@id/searchResultFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/searchResultFragment"
+        android:name="com.e.weatherapp.fragments.SearchResultFragment"
+        android:label="fragment_search_result"
+        tools:layout="@layout/fragment_search_result" />
 </navigation>
